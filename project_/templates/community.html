@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <title>智慧教育引擎</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1em;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #555;
+            color: white;
+            padding: 0.5em;
+            text-align: center;
+        }
+        nav a {
+            color: lightgray;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+	ul {
+            color:  #293d3d;
+            text-decoration: none;
+    	    list-style-type: none !important;
+            text-align: center;
+	}
+	
+        section {
+            padding: 1em;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 1em;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>社群</h1>
+</header>
+
+<nav>
+    <a href="index.html">首頁</a>
+    <a href="individual-learning.html">個別化學習</a>
+    <a href="educational-resources.html">教育資源</a>
+    <a href="community.html">社群</a>
+    <a href="about-us.html">關於我們</a>
+</nav>
+
+<section id="community" style="text-align: center;">
+    <h2 style="font-size: 2em;">歡迎來到我們的社群</h2>
+    <p>參與討論區，分享學習心得和成功故事。</p>
+    <div style="height: 100px;"></div>
+    <textarea id="message-text" rows="4" cols="50" placeholder="輸入你的留言"></textarea>
+    <br>
+    <button onclick="sendMessage()">發送留言</button>    
+    <h3 style="font-size: 2em;">留言列表</h3>	
+    <div id="message-container" style="height: 1650px; overflow-y: auto;">
+    	<ul></ul>
+    </div>
+</section>
+
+<footer>
+    <p>聯絡我們：s1100707@o365st.pu.edu.tw</p>
+</footer>
+
+</body>
+</html>
