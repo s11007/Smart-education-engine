@@ -1,0 +1,164 @@
+<!-- educational-resources.html -->
+
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="{{ url_for('static', filename='js/jquery-3.7.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/video.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/gmail.js') }}"></script>
+    <title>智慧教育引擎</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1em;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #555;
+            color: white;
+            padding: 0.5em;
+            text-align: center;
+        }
+
+        nav a {
+            color: lightgray; 
+            text-decoration: none; 
+            margin: 0 15px;
+        }
+
+        section {
+            padding: 1em;
+            text-align: center;
+        }
+
+        iframe {
+            width: 400;
+            height: 250px;
+            margin-bottom: 20px;
+        }
+
+        .welcome-message {
+            font-size: 2em;
+            margin-top: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 1em;
+            text-align: center;
+        }
+
+        #category-form {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #category-selection {
+            margin-right: 10px;
+        }
+
+        button {
+            margin-top: 10px;
+        }
+
+        #message-container {
+            margin: 0 auto;
+        }
+
+        ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>教育資源</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">首頁</a>
+        <a href="individual-learning.html">個別化學習</a>
+        <a href="educational-resources.html">教育資源</a>
+        <a href="community.html">社群</a>
+        <a href="about-us.html">關於我們</a>
+    </nav>
+                </section>
+                </div>
+
+                <div id="category-form">
+                    <h2 style="font-size: 2em;">歡迎來到教育資源區</h2>
+                    <p>探索我們的教育資源庫，找到優秀的教材和課程。</p>
+                    <div style="height: 35px;"></div>
+                    <h2>選擇您感興趣的影片類別：</h2>
+                    <label for="category-selection">影片類別：</label>
+                    <select id="category-selection" name="categories">
+                        {% for category in categories %}
+                            <option value="{{ category }}">{{ category }}</option>
+                        {% endfor %}
+                    </select>
+                    <form id="video-search-form" action="/videos" method="post">
+                        <button type="submit">搜尋</button>
+                    </form>
+                </div>
+
+
+                </section>
+                    <section id="educational-resources">
+                        <div id="video-results">
+            <!-- 影片搜尋結果顯示處 -->
+        </div>
+
+        <h2>-- 推薦 --</h2>
+        <div class="video-container">
+            <div class="video">
+                <!-- 推薦影片顯示處 -->
+                <iframe src="https://www.youtube.com/embed/MUCezXWZKCc" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/U6IlFbFZzSQ" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/-yu6BP00KfQ" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/-WjcbGO_Nl8" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+            <p class="welcome-message">歡迎志同道合的夥伴一同投入創作行列</p>
+            <p class="welcome-message">投稿請於下方填入您的電子信箱，將盡速與你聯絡</p>
+
+            <h1>投稿表單</h1>
+            <section>
+                <form id="submission-form" action="/submit" method="post">
+                    <label for="email">電子郵件：</label>
+                    <input type="email" id="email" name="email" placeholder="請輸入您的電子郵件" required>
+                    <button type="submit">提交</button>
+                </form>
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }}" style="text-align: center;">
+                                <h2>{{ message }}</h2>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <div style="height: 200px;"></div>
+    <footer>
+        <p>聯絡我們：s1100707@o365st.pu.edu.tw</p>
+    </footer>
+
+</body>
+</html>
